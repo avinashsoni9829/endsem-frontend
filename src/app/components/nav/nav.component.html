@@ -10,10 +10,13 @@
             <a class="nav-link active" aria-current="page" [routerLink]="['']">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/signup']">SignUp</a>
+            <a class="nav-link" [routerLink]="['/signup']" *ngIf="!loggedin">SignUp</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/login']">Login</a>
+            <a class="nav-link" [routerLink]="['/login']" *ngIf="!loggedin" >Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="loggedin" (click)="logout()">Logout</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"[routerLink]="['/about']">About Us</a>

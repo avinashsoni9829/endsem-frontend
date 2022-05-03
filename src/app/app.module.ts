@@ -12,6 +12,9 @@ import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule } from '@angular/common/http';
+import { authInterceptorProvider } from './services/auth.interceptor';
+import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,9 @@ import {HttpClientModule } from '@angular/common/http';
     SignupComponent,
     LoginComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    UserDashboardComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,7 @@ import {HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [authInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
