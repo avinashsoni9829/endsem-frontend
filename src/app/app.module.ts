@@ -15,6 +15,7 @@ import {HttpClientModule } from '@angular/common/http';
 import { authInterceptorProvider } from './services/auth.interceptor';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard
     AboutComponent,
     HomeComponent,
     UserDashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,

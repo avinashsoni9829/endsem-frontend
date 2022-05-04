@@ -25,7 +25,7 @@ export class LoginService {
 
   public loginUser(token : any){
      localStorage.setItem("token",token);
-     this.loginStatusSubject.next(true);
+     
      return true; 
   }
 
