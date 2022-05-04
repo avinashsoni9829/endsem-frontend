@@ -47,24 +47,34 @@ export class LoginComponent implements OnInit {
                 this.loginservice.setUser(user);
                 // now we will redirect acc to the role 
                 let role = this.loginservice.getUserRole();
+                console.log(role);
 
+                
                 if(role == 'ADMIN'){
+                  console.log("admin Logged in");
                     this.route.navigateByUrl('admin-dashboard');
+                    this.loginservice.loginStatusSubject.next(true);
+                    
+
                 }
                 else
                 if(role == 'NORMAL'){
                    this.route.navigateByUrl('user-dashboard');
+                   this.loginservice.loginStatusSubject.next(true);
                 }
                 else
                 {
+                 
                    this.loginservice.logout();
-                   location.reload();
+                   this.loginservice.loginStatusSubject.next(false);
                    
                 }
-                window.location.reload();
+               
+            
               },
               (error : any) => {
-
+                   console.log(error);
+                   
               }
 
             )

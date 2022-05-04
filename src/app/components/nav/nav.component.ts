@@ -12,6 +12,9 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {
      this.loggedin = this.loginservice.isLoggedIn();
+     this.loginservice.loginStatusSubject.asObservable().subscribe(data => {
+       this.loggedin = this.loginservice.isLoggedIn();
+     })
 
   }
   logout(){

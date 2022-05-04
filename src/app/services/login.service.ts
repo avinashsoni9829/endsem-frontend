@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { baseUrl} from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs/internal/Subject';
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
   constructor(private http : HttpClient) { }
+
+  public loginStatusSubject = new Subject<Boolean>();
+
 
   public getCurrentUser(){
     return this.http.get(baseUrl+'/current-user');
@@ -21,6 +25,7 @@ export class LoginService {
 
   public loginUser(token : any){
      localStorage.setItem("token",token);
+     this.loginStatusSubject.next(true);
      return true; 
   }
 
