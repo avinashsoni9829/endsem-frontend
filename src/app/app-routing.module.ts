@@ -2,9 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { AboutComponent } from './pages/about/about.component';
+import { AddCategoryComponent } from './pages/add-category/add-category.component';
+import { AddQuizComponent } from './pages/add-quiz/add-quiz.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { QuizzesComponent } from './pages/quizzes/quizzes.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { AdminGuardGuard } from './services/admin-guard.guard';
@@ -42,8 +46,28 @@ const routes: Routes = [
   {
      path : "admin-dashboard",
      component :AdminDashboardComponent,
-     pathMatch:'full',
+    
      canActivate:[AdminGuardGuard],
+     children : 
+      [
+      {
+            path : "add-category",
+            component:AddCategoryComponent
+       },
+       {
+            path : "categories",
+            component : CategoriesComponent
+       },
+       { 
+            path:"Quizzes",
+            component : QuizzesComponent
+       },
+       {
+           path : "add-quiz",
+           component : AddQuizComponent
+       }
+     
+     ]
   },
   {
      path:"user-dashboard",
@@ -52,8 +76,6 @@ const routes: Routes = [
      canActivate:[UserGuard],
   },
  
-
-
 ];
 
 @NgModule({

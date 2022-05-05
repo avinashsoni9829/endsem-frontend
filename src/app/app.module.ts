@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +16,10 @@ import { authInterceptorProvider } from './services/auth.interceptor';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { AddCategoryComponent } from './pages/add-category/add-category.component';
+import { QuizzesComponent } from './pages/quizzes/quizzes.component';
+import { AddQuizComponent } from './pages/add-quiz/add-quiz.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,14 +31,19 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
     HomeComponent,
     UserDashboardComponent,
     AdminDashboardComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    CategoriesComponent,
+    AddCategoryComponent,
+    QuizzesComponent,
+    AddQuizComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [authInterceptorProvider],
   bootstrap: [AppComponent]

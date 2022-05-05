@@ -1,0 +1,24 @@
+<h1>Add a New Category</h1>
+
+<div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="showsuccessalert">
+  Category Added Successfully!
+ <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="toggleAlerts()"></button>
+</div>
+
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="showfailurealert">
+ Some Error Has Occurred !
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="toggleAlerts()"></button>
+</div>
+
+<form [formGroup]="categoryForm">
+    <div class="form-group">
+        <label for="formGroupExampleInput2">title</label>
+        <input type="text" class="form-control " id="formGroupExampleInput2" placeholder="enter category title" formControlName="title">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Description</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description"></textarea>
+      </div>
+    
+    <button type="submit" class="btn btn-primary btnb" (click)="onSubmit()">Submit</button>
+  </form>
