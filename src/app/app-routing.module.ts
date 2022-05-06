@@ -10,7 +10,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { QuizzesComponent } from './pages/quizzes/quizzes.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { UpdateQuizComponent } from './pages/update-quiz/update-quiz.component';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
+import { ViewQuestionComponent } from './pages/view-question/view-question.component';
 import { AdminGuardGuard } from './services/admin-guard.guard';
 import { ProfileGuard } from './services/profile.guard';
 import { UserGuard } from './services/user.guard';
@@ -65,6 +67,14 @@ const routes: Routes = [
        {
            path : "add-quiz",
            component : AddQuizComponent
+       },
+       {
+          path : "quiz/:qid",
+          component : UpdateQuizComponent,
+       },
+       {
+           path : "view-questions/:qid",
+           component : ViewQuestionComponent
        }
      
      ]

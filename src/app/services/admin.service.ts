@@ -24,6 +24,9 @@ export class AdminService {
   public allQuiz(){
      return this.http.get(baseUrl + '/quiz/');
   }
+  public updQuiz(formResponse : any){
+    return this.http.put(baseUrl + `/quiz/`,formResponse);
+  }
 
   public addQuiz(formResponse : any){
     return this.http.post(baseUrl + '/quiz/', formResponse);
@@ -31,5 +34,9 @@ export class AdminService {
 
   public removeQuiz(id : any){
     return this.http.delete(baseUrl + `/quiz/${id}`);
+  }
+
+  public singleQuiz(id : any){
+    return this.http.get(baseUrl + `/quiz/${id}`);
   }
 }

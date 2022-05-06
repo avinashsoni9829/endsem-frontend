@@ -12,7 +12,8 @@
                      
                       <a href="#" class="btn btn-primary">Take the Quiz</a>
                       <button type="button" class="btn btn-danger btb" (click)="deleteQuiz(item.qId)">Delete</button>
-                      <button type="button" class="btn btn-warning btb">update</button>
+                      <button type="button" class="btn btn-warning btb" [routerLink]="['/admin-dashboard/quiz/' + item.qId]">update</button>
+                      <button type="button" class="btn btn-success bt" [routerLink]="['/admin-dashboard/view-questions/'+item.qId]">Add Questions</button>
                     </div>
                   </div>
             </div>
@@ -20,3 +21,5 @@
         </div>
     </div>
 </div>
+
+<button type="button" class="btn btn-success crd " (click)="addQuiz()">Add a Quiz</button>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class QuizzesComponent implements OnInit {
   quizlist : any;
-  constructor(private adminService : AdminService) { }
+  constructor(private adminService : AdminService , private router : Router) { }
 
   ngOnInit(): void {
     this.adminService.allQuiz().subscribe(
@@ -24,21 +25,27 @@ export class QuizzesComponent implements OnInit {
     )
   }
 
+  addQuiz(){
+    console.log("ffj");
+    
+      this.router.navigateByUrl('/admin-dashboard/add-quiz');
+  }
+
   deleteQuiz(id : any){
     console.log('delete clicked',id);
-    
     this.adminService.removeQuiz(id).subscribe(
       (data) =>{
-        
-        console.log(data);
-        
+            console.log(data);
+            this.quizlist = this.quizlist.filter((q : any)=> q.qId!=id);
       },
       (error) => {
-        console.log(error);
-        
-
+         console.log(error);
+         
       }
-    );
+    )
+
+   
   }
+
 
 }
