@@ -1,0 +1,78 @@
+<h1>Add  a Question</h1>
+
+<div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="showsuccessalert">
+  Question Added Successfully!
+ <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="toggleAlerts()"></button>
+</div>
+
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="showfailurealert">
+ Some Error Has Occurred !
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="toggleAlerts()"></button>
+</div>
+
+<form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+        <label for="formGroupExampleInput2">Question</label>
+        <input 
+         [(ngModel)]="questionData.question"
+         name="question"
+         type="text" class="form-control " id="formGroupExampleInput2" placeholder="enter question">
+         </div>
+         <div class="form-group">
+            <label for="formGroupExampleInput2">option1</label>
+            <input type="text" class="form-control " id="formGroupExampleInput2" placeholder="enter option1" 
+            [(ngModel)]="questionData.option1"
+            name="option1"
+            >
+         </div>
+
+         <div class="form-group">
+          <label for="formGroupExampleInput2">option2</label>
+          <input type="text" class="form-control " id="formGroupExampleInput2" placeholder="enter option2" 
+          [(ngModel)]="questionData.option2"
+          name="option2"
+          >
+       </div>
+
+       <div class="form-group">
+        <label for="formGroupExampleInput2">option3</label>
+        <input type="text" class="form-control " id="formGroupExampleInput2" placeholder="enter option3" 
+        [(ngModel)]="questionData.option3"
+        name="option3"
+        >
+     </div>
+
+     <div class="form-group">
+      <label for="formGroupExampleInput2">option4</label>
+      <input type="text" class="form-control " id="formGroupExampleInput2" placeholder="enter option4" 
+      [(ngModel)]="questionData.option4"
+      name="option4"
+      >
+   </div>
+   <!-- <div class="form-group">
+    <label for="exampleFormControlSelect1">quiz</label>
+    <select class="form-control" id="exampleFormControlSelect1"  
+    name="qId"
+    [(ngModel)]="questionData.quiz.qId"
+    >
+    <option  *ngFor="let item of quizzes" [value]="item.qId">{{item.title}}</option>
+    </select>
+  </div> -->
+    <div class="form-group">
+      <label for="formGroupExampleInput2">answer</label>
+      <input type="text" class="form-control " id="formGroupExampleInput2" placeholder="enter answer" 
+      [(ngModel)]="questionData.answer"
+      name="answer"
+      >
+   </div>
+             
+
+            
+
+             
+           
+
+      
+    
+    <button type="submit" class="btn btn-primary btnb" >Submit</button>
+  </form>

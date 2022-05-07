@@ -39,4 +39,24 @@ export class AdminService {
   public singleQuiz(id : any){
     return this.http.get(baseUrl + `/quiz/${id}`);
   }
+  // questions 
+  public getQuestionsByQuiz(id : any){
+     return this.http.get(baseUrl + `/question/quiz/${id}`);
+  }
+  
+  public getsinglequestion(id : any){
+    return this.http.get(baseUrl +'/question/' + id );
+  }
+  public addQuestions(formdata : any){
+      return this.http.post(baseUrl + '/question/',formdata);
+  }
+
+  public deleteQuestions(id : any){
+     return this.http.delete(baseUrl + `/question/${id}`);
+  }
+  
+
+  public updateQuestion(formadata : any){
+     return this.http.put(baseUrl + '/question/',formadata);
+  }
 }

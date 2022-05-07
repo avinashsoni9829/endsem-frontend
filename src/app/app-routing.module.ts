@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { AboutComponent } from './pages/about/about.component';
 import { AddCategoryComponent } from './pages/add-category/add-category.component';
+import { AddQuestionsComponent } from './pages/add-questions/add-questions.component';
 import { AddQuizComponent } from './pages/add-quiz/add-quiz.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
@@ -10,6 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { QuizzesComponent } from './pages/quizzes/quizzes.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { UpdateQuestionComponent } from './pages/update-question/update-question.component';
 import { UpdateQuizComponent } from './pages/update-quiz/update-quiz.component';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { ViewQuestionComponent } from './pages/view-question/view-question.component';
@@ -74,8 +76,17 @@ const routes: Routes = [
        },
        {
            path : "view-questions/:qid",
-           component : ViewQuestionComponent
-       }
+           component : ViewQuestionComponent,
+          
+       },
+       {
+         path : "add-questions/:qid",
+         component : AddQuestionsComponent
+       },
+       {
+        path : "update-questions/:quesid",
+        component : UpdateQuestionComponent
+      }
      
      ]
   },
