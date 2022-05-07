@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="showfailurealert">
+        You Have Reached the limit for no of questions in the quiz ! Please update the no of questions to add more 
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="toggleAlerts()"></button>
+     </div>
+
+    <div class="row">
+        <div class="col-md-6"><h1>Questions </h1></div>
+        <div class="col-md-6"><button type="button" class="btn btn-success" (click)="AddQns()" >Add More Questions</button></div>
+    </div>
+</div>
+<div>No of Qns : {{questions?.length | number}} / {{maxQns}}</div>
+
+
+<div class="container1" *ngFor="let item of questions;index as q;">
+    
+    <div class="question ">
+        <div class="py-2 h5"><b>Q{{q + 1}}. {{item.question}}</b></div>
+        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+            <label class="options">{{item.option1}}
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">{{item.option2}}
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">{{item.option3}}
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">{{item.option4}}
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div>
+            <h3>Correct Ans : {{item.answer}}</h3>
+        </div>
+    </div>
+    <div >
+
+        <button class="btn btn-primary btngl" type="button" [routerLink]="['/admin-dashboard/update-questions/'+item.quesid]" >Update</button>
+        <button class="btn btn-danger  btngl" type="button" (click)="remove(item.quesid)">Remove</button>
+    </div>
+   
+</div>
+
+
+
+
+
+

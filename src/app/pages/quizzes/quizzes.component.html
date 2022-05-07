@@ -1,0 +1,32 @@
+<h1>List of Ongoing Quizzes</h1>
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 crd"  *ngFor="let item of quizlist">
+                <div class="card">
+                    <h5 class="card-header bg-dark text-white">{{item.category.title}}</h5>
+                    <div class="card-body">
+                      <h5 class="card-title">{{item.title}}</h5>
+                      <h5 class="card-title">{{item.maxMarks}} marks</h5>
+                      <h5 class="card-title">{{item.numberofQuestions}} questions</h5>
+                     
+                       <div class="container">
+                           <div class="row">
+                               
+                               <div class="col-md-4"><button type="button" class="btn btn-success" [routerLink]="['/admin-dashboard/view-questions/'+item.qId]">Add Qn</button></div>
+                               <div class="col-md-4"><button type="button" class="btn btn-warning " [routerLink]="['/admin-dashboard/quiz/' + item.qId]">update</button></div>
+                               <div class="col-md-4">  <button type="button" class="btn btn-danger " (click)="deleteQuiz(item.qId)">Delete</button></div>
+                            </div>
+                       </div>
+                    
+                      
+                      
+                    </div>
+                  </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn-success crd " (click)="addQuiz()">Add a Quiz</button>

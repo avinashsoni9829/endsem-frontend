@@ -1,0 +1,32 @@
+
+
+<div class="container">
+  <div class="hd">
+    <h1>Welcome to Admin panel</h1>
+  </div>
+  <div class="panel">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active alert alert-dark" [routerLink]="['categories']">Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link alert alert-dark" [routerLink]="['add-category']">Add Category</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link alert alert-dark" [routerLink]="['Quizzes']">Quizzes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link alert alert-dark" [routerLink]="['add-quiz']">Add Quiz</a>
+        </li>
+       
+      </ul>
+    </div>
+    <div class="col-md-9">
+    
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+</div>

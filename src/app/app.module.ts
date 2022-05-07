@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,6 +12,19 @@ import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule } from '@angular/common/http';
+import { authInterceptorProvider } from './services/auth.interceptor';
+import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { AddCategoryComponent } from './pages/add-category/add-category.component';
+import { QuizzesComponent } from './pages/quizzes/quizzes.component';
+import { AddQuizComponent } from './pages/add-quiz/add-quiz.component';
+import { UpdateQuizComponent } from './pages/update-quiz/update-quiz.component';
+import { ViewQuestionComponent } from './pages/view-question/view-question.component';
+import { AddQuestionsComponent } from './pages/add-questions/add-questions.component';
+import { UpdateQuestionComponent } from './pages/update-question/update-question.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,16 +33,28 @@ import {HttpClientModule } from '@angular/common/http';
     SignupComponent,
     LoginComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    UserDashboardComponent,
+    AdminDashboardComponent,
+    ProfilePageComponent,
+    CategoriesComponent,
+    AddCategoryComponent,
+    QuizzesComponent,
+    AddQuizComponent,
+    UpdateQuizComponent,
+    ViewQuestionComponent,
+    AddQuestionsComponent,
+    UpdateQuestionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [authInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

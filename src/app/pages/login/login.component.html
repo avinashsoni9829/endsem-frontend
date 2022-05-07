@@ -1,4 +1,13 @@
 <div class="container">
+  <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="showsuccessalert">
+    Login Successfull!
+   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="toggleAlerts()"></button>
+ </div>
+
+ <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="showfailurealert">
+   Some Error Has Occurred !
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="toggleAlerts()"></button>
+</div>
     <div class="row">
         <div class="col-md-5">
             <h1 class="signhead">Login for ExamPortal</h1>
@@ -6,21 +15,18 @@
         </div>
 
         <div class="col-md-7">
-            <form class="signupform">
+            <form class="signupform"  [formGroup]="loginform" >
                
                 <div class="mb-3">
                     <label for="exampleInput" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="exampleInput" >
+                    <input type="text" class="form-control" id="exampleInput"  formControlName="username">
                  </div>
                 
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
+                  <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
                 </div>
-         
-                
-
-                 <button type="submit" class="btn btn-primary">Login</button>
+                 <button type="submit" class="btn btn-primary" (click)="onSubmit()">Login</button>
               </form>
         </div>
     </div>
