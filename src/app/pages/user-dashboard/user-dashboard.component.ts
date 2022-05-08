@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -6,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent implements OnInit {
-
-  constructor() { }
+   listofQuizzes:any;
+  constructor(private adminService:AdminService , private route : Router) { }
 
   ngOnInit(): void {
+    this.adminService.allQuiz().subscribe(
+      (data) => {
+         this.listofQuizzes = data;
+         console.log(this.listofQuizzes);
+         
+      },
+      (error) => {
+         console.log(error);
+         
+      }
+    )
+  }
+  quizHelper(){
+    console.log("nfnnf");
+    this.route.navigateByUrl('/user-dashboard/quiz-home');
+    
   }
 
 }

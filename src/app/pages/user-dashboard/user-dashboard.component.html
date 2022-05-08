@@ -1,1 +1,27 @@
-<p>user-dashboard works!</p>
+<div class="container">
+    <div class="row" *ngFor="let items of listofQuizzes ">
+        
+        <div class="col-md-12 bx">
+            <div class="card text-center ">
+                <div class="card-footer text-muted">
+                  {{items.description}}
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{items.title}}</h5>
+                  <div class="container">
+                   </div>
+                 
+                
+                  <button  class="btn btn-primary" (click)="quizHelper()" >Give Quiz</button>
+                </div>
+                <div class="card-footer text-muted">
+                    <div class="row">
+                        <div class="col-md-6"> <p class="card-text"> Max Marks : {{items.maxMarks}}</p></div>
+                        <div class="col-md-6">  <p class="card-text"> Number of Question : {{items.numberofQuestions}}</p></div>
+                    </div>
+                </div>
+              </div>
+        </div>
+       
+    </div>
+</div>
