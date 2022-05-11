@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-quizstart',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quizstart.component.css']
 })
 export class QuizstartComponent implements OnInit {
-
-  constructor() { }
+   qid : any;
+  constructor(private route : ActivatedRoute , private r : Router) { }
 
   ngOnInit(): void {
-  }
+   this.qid = this.route.snapshot.params.qId;
+   console.log(this.qid);
+    
 
+  }
+  
+  start(){
+     this.r.navigateByUrl('quiz-ground/'+this.qid);
+     
+  }
 }

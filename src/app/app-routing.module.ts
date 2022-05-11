@@ -10,6 +10,7 @@ import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { QuizPageComponent } from './pages/quiz-page/quiz-page.component';
 import { QuizstartComponent } from './pages/quizstart/quizstart.component';
 import { QuizzesComponent } from './pages/quizzes/quizzes.component';
 import { SignupComponent } from './pages/signup/signup.component';
@@ -99,17 +100,19 @@ const routes: Routes = [
      ]
   },
   {
-     path:"user-dashboard",
-     component:UserDashboardComponent,
+      path:"user-dashboard",
+      component:UserDashboardComponent,
       canActivate:[UserGuard],
-      children:
-      [
-       {
-          path:"quiz-home",
-          component: QuizstartComponent
-       }
-     ]
+     
   },
+  {
+    path:"quiz-home/:qId",
+    component: QuizstartComponent
+  },
+  {
+     path:"quiz-ground/:qId",
+     component:QuizPageComponent
+  }
  
 ];
 

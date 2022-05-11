@@ -1,0 +1,27 @@
+
+    <div *ngFor="let item of questions;index as q;">
+        <div class="container mt-sm-5 my-1 py-10 mrd">
+            <div class="question ml-sm-5 pl-sm-5 pt-2">
+                <div class="py-2 h5"><b>Q{{q + 1}}. {{item.question}}</b></div>
+                <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                    <label class="options">{{item.option1}}
+                        <input type="radio" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="options">{{item.option2}}
+                        <input type="radio" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="options">{{item.option3}}
+                        <input type="radio" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="options">{{item.option4}}
+                        <input type="radio" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+           
+        </div>
+    </div>

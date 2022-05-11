@@ -24,9 +24,11 @@ export class UserDashboardComponent implements OnInit {
       }
     )
   }
-  quizHelper(){
+  quizHelper(id : any){
     console.log("nfnnf");
-    this.route.navigateByUrl('/user-dashboard/quiz-home');
+    console.log(id);
+    
+    this.route.navigateByUrl('quiz-home/' + id);
     
   }
 
