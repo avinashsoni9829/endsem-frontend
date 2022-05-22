@@ -1,27 +1,42 @@
-
-    <div *ngFor="let item of questions;index as q;">
-        <div class="container mt-sm-5 my-1 py-10 mrd">
-            <div class="question ml-sm-5 pl-sm-5 pt-2">
-                <div class="py-2 h5"><b>Q{{q + 1}}. {{item.question}}</b></div>
-                <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
-                    <label class="options">{{item.option1}}
-                        <input type="radio" name="radio">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="options">{{item.option2}}
-                        <input type="radio" name="radio">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="options">{{item.option3}}
-                        <input type="radio" name="radio">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="options">{{item.option4}}
-                        <input type="radio" name="radio">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-            </div>
-           
+<div class="container qns">
+    <div class="row qd">
+        <div class="col-md-12">
+           <h3> Q. {{questions[curr_idx]?.question}}</h3>
         </div>
+        <div class="col-md-12">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    {{questions[curr_idx]?.option1}}
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    {{questions[curr_idx]?.option2}}
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    {{questions[curr_idx]?.option3}}
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                {{questions[curr_idx]?.option4}}
+                </label>
+              </div>
+  </div>
+     
     </div>
+     <div class="row">
+         <div class="col-md-6">
+            <button type="button" class="btn btn-dark" *ngIf="!(curr_idx == 0)" (click)="rem()">Prev</button>
+         </div>
+         <div class="col-md-6">
+            <button type="button" class="btn btn-dark" *ngIf="!(curr_idx == questions.length - 1)" (click)="add()">Next</button>
+         </div>
+     </div>
+</div>

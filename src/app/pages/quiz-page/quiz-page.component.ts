@@ -7,9 +7,12 @@ import { AdminService } from 'src/app/services/admin.service';
   templateUrl: './quiz-page.component.html',
   styleUrls: ['./quiz-page.component.css']
 })
-export class QuizPageComponent implements OnInit {
+export class QuizPageComponent implements OnInit 
+{
   qid : any;
   questions : any;
+  points = 0;
+  curr_idx = 0;
   constructor(private route : ActivatedRoute , private adminService : AdminService) { }
 
   ngOnInit(): void {
@@ -27,6 +30,14 @@ export class QuizPageComponent implements OnInit {
    }
    )
    
+  }
+
+  rem(){
+    this.curr_idx = this.curr_idx - 1;
+  }
+
+  add(){
+    this.curr_idx = this.curr_idx + 1;
   }
 
 }

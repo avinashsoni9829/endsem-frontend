@@ -24,7 +24,7 @@ import { UserGuard } from './services/user.guard';
 
 const routes: Routes = [
   {
-    path : "",
+    path : "home",
     component:HomeComponent,
     pathMatch:'full',
   },

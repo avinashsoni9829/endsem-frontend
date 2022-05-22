@@ -38,10 +38,14 @@ export class NavComponent implements OnInit {
 
   }
   homecall(){
+    if(this.loggedin == false){
+       this.route.navigateByUrl('/home');
+    }
+    else
     if(this.isUserAdmin){
         this.route.navigateByUrl('/admin-dashboard');
     }
-    else
+    else 
     {
       this.route.navigateByUrl('/user-dashboard');
     }
