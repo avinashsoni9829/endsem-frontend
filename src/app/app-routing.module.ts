@@ -6,10 +6,14 @@ import { AddCategoryComponent } from './pages/add-category/add-category.componen
 import { AddQuestionsComponent } from './pages/add-questions/add-questions.component';
 import { AddQuizComponent } from './pages/add-quiz/add-quiz.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { QuizPageComponent } from './pages/quiz-page/quiz-page.component';
+import { QuizstartComponent } from './pages/quizstart/quizstart.component';
 import { QuizzesComponent } from './pages/quizzes/quizzes.component';
+import { ResultComponent } from './pages/result/result.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { UpdateQuestionComponent } from './pages/update-question/update-question.component';
 import { UpdateQuizComponent } from './pages/update-quiz/update-quiz.component';
@@ -21,7 +25,7 @@ import { UserGuard } from './services/user.guard';
 
 const routes: Routes = [
   {
-    path : "",
+    path : "home",
     component:HomeComponent,
     pathMatch:'full',
   },
@@ -54,26 +58,32 @@ const routes: Routes = [
      canActivate:[AdminGuardGuard],
      children : 
       [
-      {
+        {
+           path : "",
+           component:AdminHomeComponent
+
+        },
+
+        {
             path : "add-category",
             component:AddCategoryComponent
-       },
-       {
+        },
+        {
             path : "categories",
             component : CategoriesComponent
-       },
-       { 
+        },
+        { 
             path:"Quizzes",
             component : QuizzesComponent
-       },
-       {
+        },
+        {
            path : "add-quiz",
            component : AddQuizComponent
-       },
-       {
+        },
+        {
           path : "quiz/:qid",
           component : UpdateQuizComponent,
-       },
+        },
        {
            path : "view-questions/:qid",
            component : ViewQuestionComponent,
@@ -91,11 +101,23 @@ const routes: Routes = [
      ]
   },
   {
-     path:"user-dashboard",
-     component:UserDashboardComponent,
-     pathMatch:'full',
-     canActivate:[UserGuard],
+      path:"user-dashboard",
+      component:UserDashboardComponent,
+      canActivate:[UserGuard],
+     
   },
+  {
+    path:"quiz-home/:qId",
+    component: QuizstartComponent
+  },
+  {
+     path:"quiz-ground/:qId",
+     component:QuizPageComponent
+  },
+  {
+    path:"result",
+    component : ResultComponent
+  }
  
 ];
 
