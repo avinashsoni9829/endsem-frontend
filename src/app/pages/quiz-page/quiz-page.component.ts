@@ -7,12 +7,21 @@ import { AdminService } from 'src/app/services/admin.service';
   templateUrl: './quiz-page.component.html',
   styleUrls: ['./quiz-page.component.css']
 })
+
+
+
+
+
 export class QuizPageComponent implements OnInit 
 {
   qid : any;
   questions : any;
   points = 0;
   curr_idx = 0;
+  ans : any;
+  response : any;
+  res:any;
+  SolutionSheet :any = {};
   constructor(private route : ActivatedRoute , private adminService : AdminService) { }
 
   ngOnInit(): void {
@@ -29,15 +38,55 @@ export class QuizPageComponent implements OnInit
       
    }
    )
+
    
+  
+   
+    
+   
+    
+  
+      
   }
 
   rem(){
+    this.res = document.querySelector('input[name="flexRadioDefault"]:checked');
+    this.qid = this.route.snapshot.params.qId;
+    this.SolutionSheet[this.questions[this.curr_idx].quesid] = this.res;
+    console.log(this.SolutionSheet);
+    
     this.curr_idx = this.curr_idx - 1;
+   
   }
 
   add(){
+    this.res = document.querySelector('input[name="flexRadioDefault"]:checked');
+    this.qid = this.route.snapshot.params.qId;
+    console.log("id after this : ");
+    
+    console.log(this.qid);
+    console.log("res after this : ");
+    console.log(this.res);
+    
+    
+    this.SolutionSheet[this.questions[this.curr_idx].quesid] = this.res.value;
+    console.log(this.SolutionSheet);
     this.curr_idx = this.curr_idx + 1;
+  }
+
+  submit(){
+    this.res = document.querySelector('input[name="flexRadioDefault"]:checked');
+    this.qid = this.route.snapshot.params.qId;
+    console.log("id after this : ");
+    
+    console.log(this.qid);
+    console.log("res after this : ");
+    console.log(this.res);
+    
+    
+    this.SolutionSheet[this.questions[this.curr_idx].quesid] = this.res.value;
+    console.log(this.SolutionSheet);
+    
   }
 
 }

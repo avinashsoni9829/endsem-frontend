@@ -5,25 +5,31 @@
         </div>
         <div class="col-md-12">
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" 
+                 id="flexRadioDefault1" class="rdb" 
+                 value="{{questions[curr_idx]?.option1}}"
+                 >
                 <label class="form-check-label" for="flexRadioDefault1">
                     {{questions[curr_idx]?.option1}}
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" class="rdb"
+                value="{{questions[curr_idx]?.option2}}">
                 <label class="form-check-label" for="flexRadioDefault1">
                     {{questions[curr_idx]?.option2}}
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" class="rdb"
+                value="{{questions[curr_idx]?.option3}}">
                 <label class="form-check-label" for="flexRadioDefault1">
                     {{questions[curr_idx]?.option3}}
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" class="rdb"
+                value="{{questions[curr_idx]?.option4}}">
                 <label class="form-check-label" for="flexRadioDefault1">
                 {{questions[curr_idx]?.option4}}
                 </label>
@@ -38,5 +44,8 @@
          <div class="col-md-6">
             <button type="button" class="btn btn-dark" *ngIf="!(curr_idx == questions.length - 1)" (click)="add()">Next</button>
          </div>
+         <div class="col-md-6">
+          <button type="button" class="btn btn-dark" *ngIf="(curr_idx == questions.length - 1)" (click)="submit()">Submit</button>
+       </div>
      </div>
 </div>
