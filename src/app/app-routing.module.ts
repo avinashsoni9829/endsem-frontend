@@ -13,6 +13,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { QuizPageComponent } from './pages/quiz-page/quiz-page.component';
 import { QuizstartComponent } from './pages/quizstart/quizstart.component';
 import { QuizzesComponent } from './pages/quizzes/quizzes.component';
+import { ResultComponent } from './pages/result/result.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { UpdateQuestionComponent } from './pages/update-question/update-question.component';
 import { UpdateQuizComponent } from './pages/update-quiz/update-quiz.component';
@@ -112,6 +113,10 @@ const routes: Routes = [
   {
      path:"quiz-ground/:qId",
      component:QuizPageComponent
+  },
+  {
+    path:"result",
+    component : ResultComponent
   }
  
 ];

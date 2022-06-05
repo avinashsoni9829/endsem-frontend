@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -21,8 +21,9 @@ export class QuizPageComponent implements OnInit
   ans : any;
   response : any;
   res:any;
+  maxscore :any;
   SolutionSheet :any = {};
-  constructor(private route : ActivatedRoute , private adminService : AdminService) { }
+  constructor(private route : ActivatedRoute , private adminService : AdminService , private rt  : Router ) { }
 
   ngOnInit(): void {
    this.qid = this.route.snapshot.params.qId;
@@ -38,6 +39,8 @@ export class QuizPageComponent implements OnInit
       
    }
    )
+
+
 
    
   
@@ -86,7 +89,10 @@ export class QuizPageComponent implements OnInit
     
     this.SolutionSheet[this.questions[this.curr_idx].quesid] = this.res.value;
     console.log(this.SolutionSheet);
-    
+    this.rt.navigateByUrl('result', {state : {
+      soln: this.SolutionSheet,
+      quizId : this.qid
+    }});
   }
 
 }

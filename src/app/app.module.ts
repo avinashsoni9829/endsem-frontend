@@ -27,6 +27,7 @@ import { UpdateQuestionComponent } from './pages/update-question/update-question
 import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
 import { QuizstartComponent } from './pages/quizstart/quizstart.component';
 import { QuizPageComponent } from './pages/quiz-page/quiz-page.component';
+import { ResultComponent } from './pages/result/result.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { QuizPageComponent } from './pages/quiz-page/quiz-page.component';
     UpdateQuestionComponent,
     AdminHomeComponent,
     QuizstartComponent,
-    QuizPageComponent
+    QuizPageComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,
