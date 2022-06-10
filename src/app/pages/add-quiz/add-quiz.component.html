@@ -46,6 +46,22 @@
                   
                 </select>
               </div>
+
+              <div class="form-group">
+                <label for="formGroupExampleInput2">Duration</label>
+                <input type="text" class="form-control " id="formGroupExampleInput2" placeholder="enter quiz duration" 
+                [(ngModel)]="quizData.duration"
+                name="numberofQuestions"
+                >
+              </div>
+              <div class="form-group">
+                <label for="formGroupExampleInput2">Link to Image</label>
+                <input type="text" class="form-control " id="formGroupExampleInput2" placeholder="enter image link" 
+                [(ngModel)]="quizData.image"
+                name="image"
+                >
+              </div>
+
             <div class="form-group">
             <label for="exampleFormControlTextarea1">Description</label>
            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"   

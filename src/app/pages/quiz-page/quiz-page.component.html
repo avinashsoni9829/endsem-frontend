@@ -1,7 +1,12 @@
+
+  <h3>{{counter | formatTime}}</h3>
+
 <div class="container qns">
+   
     <div class="row qd">
         <div class="col-md-12">
-           <h3> Q. {{questions[curr_idx]?.question}}</h3>
+         
+           <h3> Q{{curr_idx + 1}}. {{questions[curr_idx]?.question}}</h3>
         </div>
         <div class="col-md-12">
             <div class="form-check">
@@ -38,9 +43,7 @@
      
     </div>
      <div class="row">
-         <div class="col-md-6">
-            <button type="button" class="btn btn-dark" *ngIf="!(curr_idx == 0)" (click)="rem()">Prev</button>
-         </div>
+          
          <div class="col-md-6">
             <button type="button" class="btn btn-dark" *ngIf="!(curr_idx == questions.length - 1)" (click)="add()">Next</button>
          </div>

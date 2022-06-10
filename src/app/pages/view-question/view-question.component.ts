@@ -51,7 +51,9 @@ export class ViewQuestionComponent implements OnInit {
   
   AddQns(){
     //[routerLink]="['/admin-dashboard/add-questions/' + qId]"
-    if(this.questions?.length <= this.maxQns){
+    console.log("Length = ",this.questions?.length);
+    
+    if(this.questions?.length < this.maxQns){
        this.routes.navigateByUrl('/admin-dashboard/add-questions/' + this.qId);
     }
     else

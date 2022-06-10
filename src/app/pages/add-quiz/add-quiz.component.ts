@@ -12,13 +12,15 @@ export class AddQuizComponent implements OnInit {
   categories : any;
   showsuccessalert = false;
   showfailurealert = false;
-
+  quizduration = [15,30,45,60];
   quizData = {
     title  : '',
     description : '',
     maxMarks : '',
     numberofQuestions : '',
     active : true,
+    duration:'',
+    image:'',
     category : {
        cid : '',
     }

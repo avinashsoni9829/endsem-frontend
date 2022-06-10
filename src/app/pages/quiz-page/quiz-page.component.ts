@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+
 import { ActivatedRoute, Route, Router } from '@angular/router';
+
+import { timer, Subscription } from "rxjs";
+import { Pipe, PipeTransform } from "@angular/core";
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -9,24 +13,31 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 
 
-
-
-
-export class QuizPageComponent implements OnInit 
+export class QuizPageComponent implements OnInit , OnDestroy
 {
   qid : any;
   questions : any;
   points = 0;
   curr_idx = 0;
   ans : any;
+  countDown: Subscription ;
+  counter = 0;
+  tick = 1000;
   response : any;
   res:any;
   maxscore :any;
+  duration:any;
+  quizdetails : any;
   SolutionSheet :any = {};
   constructor(private route : ActivatedRoute , private adminService : AdminService , private rt  : Router ) { }
+  
 
   ngOnInit(): void {
+   
+ 
+
    this.qid = this.route.snapshot.params.qId;
+  
    console.log(this.qid);
    this.adminService.getQuestionsByQuiz(this.qid).subscribe(
      (data) =>{
@@ -39,18 +50,38 @@ export class QuizPageComponent implements OnInit
       
    }
    )
-
-
-
    
-  
-   
+   this.adminService.singleQuiz(this.qid).subscribe((data) =>{
+      this.quizdetails = data;
+      this.duration = this.quizdetails.duration;
+      this.counter = this.duration * 60;
+        setTimeout(() => {
+          this.rt.navigateByUrl('result',{state : {
+            soln: this.SolutionSheet,
+            quizId : this.qid
+          }});
+          
+      }, this.duration*60*1000);
+        
+
     
-   
-    
-  
+ 
+   },
+   (error) =>{
+      console.log(error);
       
+   })
+   
+   
+   this.countDown = timer(0, this.tick).subscribe(() => --this.counter);
+ 
   }
+
+  ngOnDestroy(): void {
+    
+  }
+
+
 
   rem(){
     this.res = document.querySelector('input[name="flexRadioDefault"]:checked');
@@ -95,4 +126,18 @@ export class QuizPageComponent implements OnInit
     }});
   }
 
+}
+
+@Pipe({
+  name: "formatTime"
+})
+export class FormatTimePipe implements PipeTransform {
+  transform(value: number): string {
+    const minutes: number = Math.floor(value / 60);
+    return (
+      ("00" + minutes).slice(-2) +
+      ":" +
+      ("00" + Math.floor(value - minutes * 60)).slice(-2)
+    );
+  }
 }

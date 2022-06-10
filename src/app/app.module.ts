@@ -26,7 +26,7 @@ import { AddQuestionsComponent } from './pages/add-questions/add-questions.compo
 import { UpdateQuestionComponent } from './pages/update-question/update-question.component';
 import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
 import { QuizstartComponent } from './pages/quizstart/quizstart.component';
-import { QuizPageComponent } from './pages/quiz-page/quiz-page.component';
+import { FormatTimePipe, QuizPageComponent } from './pages/quiz-page/quiz-page.component';
 import { ResultComponent } from './pages/result/result.component';
 
 @NgModule({
@@ -52,7 +52,8 @@ import { ResultComponent } from './pages/result/result.component';
     AdminHomeComponent,
     QuizstartComponent,
     QuizPageComponent,
-    ResultComponent
+    ResultComponent,
+    FormatTimePipe
   ],
   imports: [
     BrowserModule,

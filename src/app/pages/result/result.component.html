@@ -7,6 +7,28 @@
             <h1>
                 You have Score {{totalscore}} / {{mxscr}} points
             </h1>
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1"><b>Q.No</b></div>
+                    <div class="col-md-5"><b>Question</b></div>
+                    <div class="col-md-3"><b>Your Soln</b></div>
+                    <div class="col-md-3"><b>Correct Soln</b></div>
+                </div>
+            </div>
+
+             
+            <div class="container">
+                <div class="row" *ngFor="let item of quizDetails;index as i">
+                    <div class="col-md-1"><b>{{i + 1}}</b></div>
+                    <div class="col-md-5">{{quizDetails[i].question}}</div>
+                    <div class="col-md-3">{{scoresheet[quizDetails[i].quesid]}}</div>
+                    <div class="col-md-3">{{quizDetails[i].answer}}</div>
+
+                    <div *ngIf="i!=quizDetails.length - 1" class="cd"><hr></div>
+                </div>
+            </div>
+            
         </div>
     </div>
 </div>
