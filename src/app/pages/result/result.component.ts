@@ -12,21 +12,18 @@ export class ResultComponent implements OnInit {
    scoresheet : any;
    quizId : any;
    quizDetails : any;
-   totalscore = 0;
+   totalscore  = 0;
    maxscore : any;
    mxscr = 0;
    noq  = 0;
-   payload = 0;
+   payload   = 0;
   constructor(private route : Router , private adminService : AdminService) {
       
       this.score = this.route.getCurrentNavigation()?.extras.state;
       console.log(this.score);
       this.scoresheet = this.score.soln;
       this.quizId = this.score.quizId;
-      console.log("score sheert = " );
-      console.log(this.scoresheet);
-      console.log("quiz id");
-      console.log(this.quizId);
+      
       
       
       
@@ -37,11 +34,11 @@ export class ResultComponent implements OnInit {
     
     this.adminService.singleQuiz(this.quizId).subscribe((data) =>{
       this.maxscore = data;
-      console.log("maxscore" , this.maxscore);
+    
       this.noq = this.maxscore.numberofQuestions;
       this.mxscr = this.maxscore.maxMarks;
      
-      console.log("maxmarks = ",this.maxscore);
+ 
      
     },
     (error : any) =>{
@@ -54,19 +51,19 @@ export class ResultComponent implements OnInit {
 
     this.adminService.getQuestionsByQuiz(this.quizId).subscribe((data) => {
       this.quizDetails = data;
-      console.log("details = ",this.quizDetails);
-      console.log("noq " , this.noq);
+      console.log("quizDetails = ",this.quizDetails);
+      
       
       this.payload = this.mxscr/this.noq;
-      console.log("payload= ",this.payload);
+    
       
       this.quizDetails.forEach((x : any) => {
-        console.log("speicifi ",x);
+      
         if(this.scoresheet[x.quesid] == x.answer){
-          this.totalscore = this.totalscore +this.payload;
+          this.totalscore = +this.totalscore + this.payload;
         }
       });
-      console.log("total score =", this.totalscore);
+      
       
 
     },
